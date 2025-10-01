@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RG RANKS - Professional Custom Rank Textures for Minecraft Servers. Compatible with Java, Bedrock, and Pocket Edition.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RG RANKS - Custom Minecraft Server Rank Textures</title>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+    
+    <!-- Font Awesome Icons with fallback -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
+    
+    <!-- Fallback for Font Awesome -->
+    <script>
+        (function() {
+            var cssLink = document.querySelector('link[href*="font-awesome"]');
+            cssLink.onerror = function() {
+                console.warn('Font Awesome CDN failed, icons may not display correctly');
+            };
+        })();
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-container">
+            <div class="loader-circle"></div>
+            <div class="loader-logo">RG</div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">RG RANKS</div>
+                <div class="nav-wrapper">
+                    <div class="nav-links">
+                        <a href="#features" data-nav>Features</a>
+                        <a href="#gallery" data-nav>Gallery</a>
+                        <a href="#installation" data-nav>Installation</a>
+                        <a href="#faq" data-nav>FAQ</a>
+                    </div>
+                    <a href="#" class="discord-btn" id="discordBtn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-discord"></i>
+                        <span>Join Discord</span>
+                    </a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <a href="#features" data-nav>Features</a>
+                <a href="#gallery" data-nav>Gallery</a>
+                <a href="#installation" data-nav>Installation</a>
+                <a href="#faq" data-nav>FAQ</a>
+                <a href="#" class="mobile-discord-btn" id="mobileDiscordBtn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i>
+                    Join Discord
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Ambient Background Canvas -->
+        <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
+        
+        <!-- Flowing Gradient Layers -->
+        <div class="gradient-layer gradient-1"></div>
+        <div class="gradient-layer gradient-2"></div>
+        <div class="gradient-layer gradient-3"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        <span class="hero-subtitle">RG RANKS</span>
+                        <span class="hero-title">Server Rank Textures</span>
+                    </h1>
+                    <p class="hero-description">Professional Custom Rank Textures for Minecraft Servers. Compatible with Java Edition, Bedrock Edition, and Pocket Edition. Enhance your server's visual appeal with stunning rank designs.</p>
+                    
+                    <!-- Version and Download Info -->
+                    <div class="download-info">
+                        <div class="version-text">Version <span class="version-number" id="versionNumber">1.00</span></div>
+                        <div class="download-label">Download For</div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="./assets/Zip_JAVA/RG_Ranks_Java.zip" class="btn btn-java" id="downloadJava">
+                            <i class="fab fa-java"></i> 
+                            <span>JAVA EDITION</span>
+                        </a>
+                        <a href="./assets/Zip_BEDROCK/RG_Ranks_Bedrock.zip" class="btn btn-bedrock" id="downloadBedrock">
+                            <i class="fas fa-cube"></i> 
+                            <span>BEDROCK/PE</span>
+                        </a>
+                        <a href="#gallery" class="btn btn-secondary">
+                            <span>VIEW GALLERY</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-cube-container">
+                        <div class="floating-cube">
+                            <div class="cube-face front"><i class="fas fa-crown"></i></div>
+                            <div class="cube-face back"><i class="fas fa-star"></i></div>
+                            <div class="cube-face right"><i class="fas fa-gem"></i></div>
+                            <div class="cube-face left"><i class="fas fa-medal"></i></div>
+                            <div class="cube-face top"><i class="fas fa-trophy"></i></div>
+                            <div class="cube-face bottom"><i class="fas fa-award"></i></div>
+                        </div>
+                    </div>
+                    <div class="particles-container" id="particlesContainer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            
+            <h2 class="section-title animate-on-scroll">
+                <span class="title-gradient">FEATURES</span>
+            </h2>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll" data-delay="0.1">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Custom Server Tags</h3>
+                    <p>Unique and stylish rank tags designed specifically for Minecraft servers, making your server hierarchy visually distinctive.</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="0.2">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Professional Designs</h3>
+                    <p>Carefully crafted designs that work seamlessly on servers while maintaining Minecraft's aesthetic appeal.</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="0.3">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Enhanced Visuals</h3>
+                    <p>Improve your server's visual hierarchy and player experience with clear, attractive rank displays.</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="0.4">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Cross-Platform</h3>
+                    <p>Full compatibility with Java Edition, Bedrock Edition, and Pocket Edition servers for maximum reach.</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">
+                <span class="title-gradient">GALLERY</span>
+            </h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+        <!-- Installation Guide -->
+    <section id="installation" class="installation-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">
+                <span class="title-gradient">INSTALLATION GUIDE</span>
+            </h2>
+            <div class="installation-steps">
+                <div class="step animate-on-scroll" data-step="1">
+                    <div class="step-number">
+                        <span>1</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Download the Pack</h3>
+                        <p>Choose your server edition (Java or Bedrock/PE) and download the appropriate texture pack file. Java Edition uses .zip format, while Bedrock/PE uses .mcpack format.</p>
+                    </div>
+                </div>
+                <div class="step animate-on-scroll" data-step="2">
+                    <div class="step-number">
+                        <span>2</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Server Installation</h3>
+                        <p>For Java servers, place the pack in your server's resource packs folder. For Bedrock servers, upload the pack through your server management panel or FTP.</p>
+                    </div>
+                </div>
+                <div class="step animate-on-scroll" data-step="3">
+                    <div class="step-number">
+                        <span>3</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Enable for Players</h3>
+                        <p>Configure your server to automatically prompt players to download the resource pack when joining, or make it available as an optional download.</p>
+                    </div>
+                </div>
+                <div class="step animate-on-scroll" data-step="4">
+                    <div class="step-number">
+                        <span>4</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>Configure Ranks</h3>
+                        <p>Set up your server's permission system and rank plugins to display the custom rank tags. The pack integrates with popular plugins like LuckPerms, PermissionsEx, and more.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Tutorial Section -->
+            <div class="tutorial-section animate-on-scroll">
+                <p class="tutorial-heading">Video Tutorial</p>
+                <div class="tutorial-video-box" id="tutorialVideoBox">
+                    <div class="video-thumbnail" id="videoThumbnail">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-overlay">
+                            <span id="videoTitle">Watch Tutorial</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Support Section -->
+                <div class="support-section">
+                    <p class="support-text">For Support</p>
+                    <a href="#" class="btn-support-discord" id="supportDiscordBtn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-discord"></i>
+                        <span>Join Discord</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">
+                <span class="title-gradient">FREQUENTLY ASKED QUESTIONS</span>
+            </h2>
+            <div class="faq-container" id="faqContainer">
+                <!-- FAQ items will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RG RANKS</h3>
+                    <p>Professional custom rank textures for Minecraft servers. Compatible with Java Edition, Bedrock Edition, and Pocket Edition. Enhance your server's visual hierarchy with stunning rank designs.</p>
+                    <div class="social-links" id="socialLinks">
+                        <!-- Social links will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features"><i class="fas fa-chevron-right"></i> Features</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="#installation"><i class="fas fa-chevron-right"></i> Installation</a></li>
+                        <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-resource="documentation"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+                        <li><a href="#" data-resource="tutorials"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+                        <li><a href="#" data-resource="support"><i class="fas fa-chevron-right"></i> Support</a></li>
+                        <!-- Community button removed as requested -->
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p id="copyrightText">&copy; 2024 RG RANKS. All rights reserved. Not affiliated with Mojang Studios or Microsoft.</p>
+                <p class="credits">Webpage Designed By <span class="team-highlight">TEAM RG</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="./assets/js/config.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
