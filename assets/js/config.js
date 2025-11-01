@@ -40,8 +40,14 @@ const SiteConfig = {
     // Gallery Items - Updated with proper relative paths
     gallery: [
         {
+            title: "Owner Rank",
+            description: "Premium owner tag design with icon only for the server owner",
+            image: "./assets/images/owner-rank.png",
+            placeholder: "Owner Rank Preview"
+        },
+        {
             title: "Admin Rank",
-            description: "Premium admin tag design with glowing effects for server administrators",
+            description: "Vibrant admin tag design with glowing effects for server administrators",
             image: "./assets/images/admin-rank.png",
             placeholder: "Admin Rank Preview"
         },
@@ -58,22 +64,16 @@ const SiteConfig = {
             placeholder: "VIP Rank Preview"
         },
         {
-            title: "Member Rank",
-            description: "Clean member tag style for regular server players",
-            image: "./assets/images/member-rank.png",
-            placeholder: "Member Rank Preview"
-        },
-        {
-            title: "Builder Rank",
-            description: "Creative builder tag for server construction teams",
-            image: "./assets/images/builder-rank.png",
-            placeholder: "Builder Rank Preview"
-        },
-        {
             title: "YouTuber Rank",
             description: "Special content creator tag for server promoters",
             image: "./assets/images/youtuber-rank.png",
             placeholder: "YouTuber Rank Preview"
+        },
+        {
+            title: "Member Rank",
+            description: "Clean member tag style for regular server players",
+            image: "./assets/images/member-rank.png",
+            placeholder: "Member Rank Preview"
         }
     ],
     
