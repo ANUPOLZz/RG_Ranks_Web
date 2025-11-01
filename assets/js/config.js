@@ -8,7 +8,7 @@ const SiteConfig = {
     copyrightYear: new Date().getFullYear(),
     
     // Texture Pack Version - Update this when releasing new versions
-    version: "1.0",
+    version: "1.1",
     
     // Social Media Links - Only Discord and YouTube
     social: {

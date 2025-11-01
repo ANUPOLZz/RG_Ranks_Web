@@ -205,42 +205,44 @@
             </h2>
             <div class="installation-steps">
                 <div class="step animate-on-scroll" data-step="1">
-                    <div class="step-number">
-                        <span>1</span>
-                    </div>
+                    <div class="step-number"><span>1</span></div>
                     <div class="step-content">
-                        <h3>Download the Essentials</h3>
-                        <p>For Java, first download the Java resources pack. For Bedrock, download the Geyser and Floodgate plugin in your server.</p>
+                        <h3>Download Files</h3>
+                        <p>Java: Download the resource pack.  
+                        Bedrock: Download Geyser + Floodgate plugins.</p>
                     </div>
                 </div>
+
                 <div class="step animate-on-scroll" data-step="2">
-                    <div class="step-number">
-                        <span>2</span>
-                    </div>
+                    <div class="step-number"><span>2</span></div>
                     <div class="step-content">
-                        <h3>File Configuration</h3>
-                        <p>For Java, host your java resources pack through <a href="https://mc-packs.net/" style="color: #FF00FF;">MC Packs</a>, For Bedrock, Restart/Start Your Server So New files will be generated.</p>
+                        <h3>Prepare Files</h3>
+                        <p>Java: Host the resource pack on 
+                        <a href="https://mc-packs.net/" style="color:#FF00FF;">MC Packs</a>.  
+                        Bedrock: Start your server to generate config files.</p>
                     </div>
                 </div>
+
                 <div class="step animate-on-scroll" data-step="3">
-                    <div class="step-number">
-                        <span>3</span>
-                    </div>
+                    <div class="step-number"><span>3</span></div>
                     <div class="step-content">
-                        <h3>Pack Configuration</h3>
-                        <p>For Java, copy the pack Sha1 and resources pack link that you got from hosting resources pack in mcpacks, For Bedrock, after the server restart/start is done, go to your server files, then plugins, then find geyser folder, open it and go to packs folder and if there no such folder, then create one with the name 'packs'.</p>
+                        <h3>Configure Pack</h3>
+                        <p>Java: Copy the resource pack link + SHA1 hash.  
+                        Bedrock: Go to <code>plugins/Geyser/packs</code> (create if missing).</p>
                     </div>
                 </div>
+
                 <div class="step animate-on-scroll" data-step="4">
-                    <div class="step-number">
-                        <span>4</span>
-                    </div>
+                    <div class="step-number"><span>4</span></div>
                     <div class="step-content">
-                        <h3>Pack Setup</h3>
-                        <p>For Java, open your server panel, then go to files and find 'server.properties' and inside it, find the 'resource-pack= ' and paste the link there, then again, find the 'resource-pack-sha1= ' and paste the sha1 you got there. Then restart/start your server. For Bedrock, upload the Bedrock/MCPE resources pack there and restart/start your server.</p>
+                        <h3>Apply Pack</h3>
+                        <p>Java: In <code>server.properties</code>, add the link to
+                        <code>resource-pack=</code> and SHA1 to <code>resource-pack-sha1=</code>, then restart.  
+                        Bedrock: Upload the pack to the <code>packs</code> folder and restart.</p>
                     </div>
                 </div>
             </div>
+
             
             <!-- Video Tutorial Section -->
             <div class="tutorial-section animate-on-scroll">
