@@ -85,11 +85,7 @@ const SiteConfig = {
         },
         {
             question: "Can I customize the rank designs for my server?",
-            answer: "Yes! The pack includes editable templates that you can modify to match your server's theme. Use any image editing software to customize colors, styles, and effects to create unique ranks for your server."
-        },
-        {
-            question: "How do I install this on my multiplayer server?",
-            answer: "For Java servers, upload the resource pack to your server's resourcepacks folder and add the pack URL to server.properties. For Bedrock servers, upload through your hosting panel's resource pack manager. Detailed instructions are included with the download."
+            answer: "Custom ranks are available for purchase, but you can also earn them for free by being active in our Discord or through our RG GAMES Discord Bot."
         },
         {
             question: "Which rank/permission plugins are compatible?",
