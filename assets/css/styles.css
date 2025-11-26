@@ -1606,3 +1606,27 @@ section {
 .loader-logo {
     font-weight: 800;
 }
+
+
+/* Rank Prefixes Button Section */
+.rank-prefixes-section {
+    margin: 40px 0 20px 0;
+    text-align: center;
+}
+
+.rank-prefixes-section .btn {
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .rank-prefixes-section {
+        margin: 30px 0 15px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .rank-prefixes-section {
+        margin: 20px 0 10px 0;
+    }
+}
+
