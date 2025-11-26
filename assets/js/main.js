@@ -126,6 +126,7 @@ function setupRankPrefixesButton() {
         rankPrefixesBtn.href = SiteConfig.rankPrefixesLink;
         rankPrefixesBtn.target = "_blank";
         rankPrefixesBtn.rel = "noopener noreferrer";
+        rankPrefixesBtn.setAttribute('data-delay', '0.3');
     }
 }
 
