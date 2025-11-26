@@ -23,7 +23,7 @@ const SiteConfig = {
     },
 
     // Rank Prefixes - Button Link
-    rankPrefixesLink: "https://youtube.com",  // Replace with Rank Prefixes GitHub Repo Link
+    rankPrefixesLink: "https://youtu.be/xvFZjo5PgG0?si=eptjCpO3EQGguBnn",  // Replace with Rank Prefixes GitHub Repo Link
     
     // Installation Tutorial Video
     tutorialVideo: {
