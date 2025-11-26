@@ -116,6 +116,16 @@ function setupDownloadButtons() {
     }
 }
 
+// Setup Rank Prefixes button
+function setupRankPrefixesButton() {
+    const rankPrefixesBtn = document.querySelector('.rank-prefixes-btn');
+    if (rankPrefixesBtn && SiteConfig.rankPrefixesLink) {
+        rankPrefixesBtn.href = SiteConfig.rankPrefixesLink;
+        rankPrefixesBtn.target = "_blank";
+        rankPrefixesBtn.rel = "noopener noreferrer";
+    }
+}
+
 // Setup tutorial video
 function setupTutorialVideo() {
     const videoBox = document.getElementById('tutorialVideoBox');
@@ -527,4 +537,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initAmbientCanvas();
     initParticles();
     initInteractiveEffects();
+    setupRankPrefixesButton();
 });
+

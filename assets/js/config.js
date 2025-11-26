@@ -21,6 +21,9 @@ const SiteConfig = {
         javaEdition: "https://linkvertise.com/1337427/rgranksv1-121-java?o=sharing", // Java
         bedrockEdition: "https://linkvertise.com/1337427/rgranksv1-121-bedrock?o=sharing" // Bedrock
     },
+
+    // Rank Prefixes - Button Link
+    rankPrefixesLink: "https://youtube.com",  // Replace with Rank Prefixes GitHub Repo Link
     
     // Installation Tutorial Video
     tutorialVideo: {
