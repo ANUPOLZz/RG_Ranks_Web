@@ -67,6 +67,9 @@ function applyConfig() {
     
     // Generate social links
     generateSocialLinks();
+
+    // Setup Rank Prefixes button
+    setupRankPrefixesButton();
 }
 
 // Setup resources links
@@ -537,6 +540,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initAmbientCanvas();
     initParticles();
     initInteractiveEffects();
-    setupRankPrefixesButton();
 });
 
