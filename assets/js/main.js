@@ -11,7 +11,19 @@ const elements = {
     particlesContainer: null,
     galleryGrid: null,
     faqContainer: null,
-    socialLinks: null
+    socialLinks: null,
+    // Countdown elements
+    countdownOverlay: null,
+    continueBtn: null,
+    countdownVersionOverlay: null,
+    daysOverlay: null,
+    hoursOverlay: null,
+    minutesOverlay: null,
+    secondsOverlay: null,
+    // Hero section dynamic elements
+    heroDynamicContent: null,
+    rankImageCycler: null,
+    viewGalleryLink: null
 };
 
 // Initialize DOM elements after page load
@@ -26,6 +38,18 @@ function initElements() {
     elements.galleryGrid = document.getElementById('galleryGrid');
     elements.faqContainer = document.getElementById('faqContainer');
     elements.socialLinks = document.getElementById('socialLinks');
+    // Countdown elements
+    elements.countdownOverlay = document.getElementById('countdownOverlay');
+    elements.continueBtn = document.getElementById('continueBtn');
+    elements.countdownVersionOverlay = document.getElementById('countdownVersionOverlay');
+    elements.daysOverlay = document.getElementById('daysOverlay');
+    elements.hoursOverlay = document.getElementById('hoursOverlay');
+    elements.minutesOverlay = document.getElementById('minutesOverlay');
+    elements.secondsOverlay = document.getElementById('secondsOverlay');
+    // Hero section dynamic elements
+    elements.heroDynamicContent = document.getElementById('heroDynamicContent');
+    elements.rankImageCycler = document.getElementById('rankImageCycler');
+    elements.viewGalleryLink = document.getElementById('viewGalleryLink');
 }
 
 // Apply configuration to the page
@@ -68,8 +92,9 @@ function applyConfig() {
     // Generate social links
     generateSocialLinks();
 
-    // Setup Rank Prefixes button
-    setupRankPrefixesButton();
+
+    // Initialize Countdown
+    initCountdown();
 }
 
 // Setup resources links
@@ -119,27 +144,18 @@ function setupDownloadButtons() {
     }
 }
 
-// Setup Rank Prefixes button
-function setupRankPrefixesButton() {
-    const rankPrefixesBtn = document.querySelector('.rank-prefixes-btn');
-    if (rankPrefixesBtn && SiteConfig.rankPrefixesLink) {
-        rankPrefixesBtn.href = SiteConfig.rankPrefixesLink;
-        rankPrefixesBtn.target = "_blank";
-        rankPrefixesBtn.rel = "noopener noreferrer";
-        rankPrefixesBtn.setAttribute('data-delay', '0.3');
-    }
-}
 
 // Setup tutorial video
 function setupTutorialVideo() {
-    const videoBox = document.getElementById('tutorialVideoBox');
-    const videoThumbnail = document.getElementById('videoThumbnail');
-    const videoTitle = document.getElementById('videoTitle');
+    const videoContainer = document.getElementById('videoThumbnail');
     
-    if (videoBox && SiteConfig.tutorialVideo) {
+    if (videoContainer && SiteConfig.tutorialVideo) {
+        const thumbnailElement = videoContainer.querySelector('.video-thumbnail');
+        const videoTitle = document.getElementById('videoTitle');
+        
         // Set video thumbnail
-        if (videoThumbnail) {
-            videoThumbnail.style.backgroundImage = `url('${SiteConfig.tutorialVideo.thumbnailUrl}')`;
+        if (thumbnailElement) {
+            thumbnailElement.style.backgroundImage = `url('${SiteConfig.tutorialVideo.thumbnailUrl}')`;
         }
         
         // Set video title
@@ -148,7 +164,7 @@ function setupTutorialVideo() {
         }
         
         // Add click event to open YouTube video
-        videoBox.addEventListener('click', () => {
+        videoContainer.addEventListener('click', () => {
             window.open(SiteConfig.tutorialVideo.youtubeUrl, '_blank');
         });
     }
@@ -466,7 +482,7 @@ function initParticles() {
     });
 }
 
-// Interactive hover effects - Fixed button ripple to not affect size
+// Interactive hover effects
 function initInteractiveEffects() {
     // Gallery items parallax
     document.querySelectorAll('.gallery-item').forEach(item => {
@@ -487,10 +503,205 @@ function initInteractiveEffects() {
             item.style.transform = '';
         });
     });
-    
-    // Button ripple effect - REMOVED to prevent size changes
-    // The ripple effect was causing the button size "pop" issue
-    // Buttons now rely solely on CSS hover/active states for visual feedback
+
+    // Rank Image Cycler hover effect
+    if (elements.rankImageCycler) {
+        elements.rankImageCycler.addEventListener('mousemove', (e) => {
+            const rect = elements.rankImageCycler.getBoundingClientRect();
+            const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+            const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+            elements.rankImageCycler.style.transform = `perspective(1000px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) scale(1.05)`;
+        });
+
+        elements.rankImageCycler.addEventListener('mouseleave', () => {
+            elements.rankImageCycler.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale(1)';
+        });
+    }
+}
+
+// Countdown Timer Logic
+function initCountdown() {
+    const { countdown } = SiteConfig;
+    if (!countdown || !countdown.enabled) {
+        renderHeroContent(false);
+        if (elements.countdownOverlay) elements.countdownOverlay.style.display = 'none';
+        return;
+    }
+
+    const releaseDateTimeString = `${countdown.releaseDate} ${countdown.releaseTime} UTC`;
+    const releaseDate = new Date(releaseDateTimeString).getTime();
+
+    if (isNaN(releaseDate)) {
+        console.error("Invalid countdown date/time format in config.js. Please use YYYY-MM-DD and HH:MM AM/PM.");
+        renderHeroContent(false);
+        if (elements.countdownOverlay) elements.countdownOverlay.style.display = 'none';
+        return;
+    }
+    if (elements.countdownVersionOverlay) {
+        elements.countdownVersionOverlay.innerHTML = `<span class="countdown-version-highlight">${countdown.version}</span>`;
+    }
+
+    const timerInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = releaseDate - now;
+
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            renderHeroContent(false); // Countdown finished, show normal content
+            if (elements.countdownOverlay) elements.countdownOverlay.style.display = 'none';
+            return;
+        }
+
+        renderHeroContent(true); // Countdown is active
+        updateTimerDisplays(distance);
+    }, 1000);
+
+    if (elements.countdownOverlay) elements.countdownOverlay.style.display = 'flex';
+    if (elements.continueBtn) {
+        elements.continueBtn.addEventListener('click', () => {
+            if (elements.countdownOverlay) {
+                elements.countdownOverlay.classList.add('fade-out');
+                setTimeout(() => { elements.countdownOverlay.style.display = 'none'; }, 500);
+            }
+        });
+    }
+}
+
+function updateTimerDisplays(distance) {
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Overlay timers
+    if (elements.daysOverlay) elements.daysOverlay.textContent = String(days).padStart(2, '0');
+    if (elements.hoursOverlay) elements.hoursOverlay.textContent = String(hours).padStart(2, '0');
+    if (elements.minutesOverlay) elements.minutesOverlay.textContent = String(minutes).padStart(2, '0');
+    if (elements.secondsOverlay) elements.secondsOverlay.textContent = String(seconds).padStart(2, '0');
+
+    // Hero section inline timers
+    const daysHero = document.getElementById('daysHero');
+    const hoursHero = document.getElementById('hoursHero');
+    const minutesHero = document.getElementById('minutesHero');
+    const secondsHero = document.getElementById('secondsHero');
+
+    if (daysHero) daysHero.textContent = String(days).padStart(2, '0');
+    if (hoursHero) hoursHero.textContent = String(hours).padStart(2, '0');
+    if (minutesHero) minutesHero.textContent = String(minutes).padStart(2, '0');
+    if (secondsHero) secondsHero.textContent = String(seconds).padStart(2, '0');
+}
+
+// Dynamic Hero Content Renderer
+function renderHeroContent(isCountdownActive) {
+    if (!elements.heroDynamicContent) return;
+
+    if (isCountdownActive) {
+        const { countdown } = SiteConfig;
+        elements.heroDynamicContent.innerHTML = `
+            <div class="countdown-container-hero">
+                <div class="countdown-title">Version <span class="countdown-version-highlight">${countdown.version}</span> Releasing In</div>
+                <div class="countdown-timer-hero">
+                    <span id="daysHero">00</span> : <span id="hoursHero">00</span> : <span id="minutesHero">00</span> : <span id="secondsHero">00</span>
+                </div>
+            </div>
+        `;
+    } else {
+        elements.heroDynamicContent.innerHTML = `
+            <div class="download-info">
+                <div class="version-text">Version <span class="version-number">${SiteConfig.version}</span></div>
+                <div class="download-label">Download For</div>
+            </div>
+            <div class="hero-buttons">
+                <a href="${SiteConfig.downloads.javaEdition}" class="btn btn-java" id="downloadJava">
+                    <i class="fab fa-java"></i> 
+                    <span>JAVA EDITION</span>
+                </a>
+                <a href="${SiteConfig.downloads.bedrockEdition}" class="btn btn-bedrock" id="downloadBedrock">
+                    <i class="fas fa-cube"></i> 
+                    <span>BEDROCK/PE</span>
+                </a>
+            </div>
+            <div class="hero-buttons-extra">
+                 <a href="${SiteConfig.rankPrefixesLink}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rank-prefixes-btn">
+                    <span>View Rank Prefixes</span>
+                </a>
+            </div>
+        `;
+    }
+    // Ensure the button is sized correctly after render
+    if (!isCountdownActive) {
+        setTimeout(resizeRankPrefixesButton, 0);
+    }
+}
+
+// Function to dynamically size the rank prefixes button
+function resizeRankPrefixesButton() {
+    const heroButtons = document.querySelector('.hero-buttons');
+    const rankPrefixesBtn = document.querySelector('.rank-prefixes-btn');
+
+    if (heroButtons && rankPrefixesBtn && window.innerWidth >= 560) {
+        const downloadButtons = heroButtons.querySelectorAll('.btn');
+        if (downloadButtons.length === 2) {
+            const width1 = downloadButtons[0].offsetWidth;
+            const width2 = downloadButtons[1].offsetWidth;
+            const gapStyle = window.getComputedStyle(heroButtons).gap;
+            const gap = parseFloat(gapStyle) || 20;
+            const totalWidth = width1 + width2 + gap;
+            rankPrefixesBtn.style.width = `${totalWidth}px`;
+        }
+    } else if (rankPrefixesBtn) {
+        rankPrefixesBtn.style.width = '100%';
+    }
+}
+
+// Features Carousel
+function initFeaturesCarousel() {
+    const featuresGrid = document.querySelector('.features-grid');
+    if (!featuresGrid) return;
+
+    const featureCards = Array.from(featuresGrid.children);
+    const totalCards = featureCards.length;
+    if (totalCards === 0) return;
+
+    // Clone cards for a seamless loop
+    featureCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        featuresGrid.appendChild(clone);
+    });
+
+    let animationPaused = false;
+
+    featuresGrid.addEventListener('mouseenter', () => {
+        animationPaused = true;
+        featuresGrid.style.animationPlayState = 'paused';
+    });
+
+    featuresGrid.addEventListener('mouseleave', () => {
+        animationPaused = false;
+        featuresGrid.style.animationPlayState = 'running';
+    });
+}
+
+// Rank Image Cycler
+function initRankImageCycler() {
+    if (!elements.rankImageCycler || window.innerWidth < 992) return;
+
+    const images = SiteConfig.gallery.map(item => item.image);
+    if (images.length === 0) return;
+
+    elements.rankImageCycler.innerHTML = images.map((src, index) => 
+        `<img src="${src}" alt="Rank Image ${index + 1}" class="rank-image ${index === 0 ? 'active' : ''}" style="animation-delay: ${index * 5}s">`
+    ).join('');
+
+    let currentIndex = 0;
+    setInterval(() => {
+        const currentImage = elements.rankImageCycler.children[currentIndex];
+        currentIndex = (currentIndex + 1) % images.length;
+        const nextImage = elements.rankImageCycler.children[currentIndex];
+
+        currentImage.classList.remove('active');
+        nextImage.classList.add('active');
+    }, 5000);
 }
 
 // Preload ad images to ensure they load properly
@@ -540,6 +751,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initAmbientCanvas();
     initParticles();
+    initFeaturesCarousel();
+    initRankImageCycler();
     initInteractiveEffects();
+
+    // Add resize listener for the rank prefixes button
+    window.addEventListener('resize', resizeRankPrefixesButton);
 });
 

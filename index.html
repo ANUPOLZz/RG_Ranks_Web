@@ -38,6 +38,22 @@
 
 </head>
 <body>
+    <!-- Countdown Overlay -->
+    <div id="countdownOverlay" class="countdown-overlay">
+        <div class="countdown-overlay-content">
+            <h2 class="countdown-overlay-title">Version <span id="countdownVersionOverlay"></span> Releasing In</h2>
+            <div id="countdownTimerOverlay" class="countdown-timer-overlay-container">
+                <div class="timer-unit"><span id="daysOverlay">00</span><label>DAYS</label></div>
+                <div class="timer-separator">:</div>
+                <div class="timer-unit"><span id="hoursOverlay">00</span><label>HOURS</label></div>
+                <div class="timer-separator">:</div>
+                <div class="timer-unit"><span id="minutesOverlay">00</span><label>MINUTES</label></div>
+                <div class="timer-separator">:</div>
+                <div class="timer-unit"><span id="secondsOverlay">00</span><label>SECONDS</label></div>
+            </div>
+            <button id="continueBtn" class="btn btn-secondary">CONTINUE TO THE SITE</button>
+        </div>
+    </div>
     <!-- Loading Screen -->
     <div class="loader-wrapper" id="loader">
         <div class="loader-container">
@@ -109,36 +125,20 @@
                     </h1>
                     <p class="hero-description">Professional Custom Rank Textures for Minecraft Servers. Compatible with Java Edition, Bedrock Edition, and Pocket Edition. Enhance your server's visual appeal with stunning rank designs.</p>
                     
-                    <!-- Version and Download Info -->
-                    <div class="download-info">
-                        <div class="version-text">Version <span class="version-number" id="versionNumber">1.00</span></div>
-                        <div class="download-label">Download For</div>
+                    <!-- Dynamic Content: Countdown or Download Buttons -->
+                    <div id="heroDynamicContent">
+                        <!-- This will be populated by main.js -->
                     </div>
-                    
-                    <div class="hero-buttons">
-                        <a href="./assets/Zip_JAVA/RG_Ranks_Java.zip" class="btn btn-java" id="downloadJava">
-                            <i class="fab fa-java"></i> 
-                            <span>JAVA EDITION</span>
-                        </a>
-                        <a href="./assets/Zip_BEDROCK/RG_Ranks_Bedrock.zip" class="btn btn-bedrock" id="downloadBedrock">
-                            <i class="fas fa-cube"></i> 
-                            <span>BEDROCK/PE</span>
-                        </a>
-                        <a href="#gallery" class="btn btn-secondary">
-                            <span>VIEW GALLERY</span>
-                        </a>
-                    </div>
+
+                    <!-- View Gallery Link -->
+                    <a href="#gallery" class="view-gallery-link" id="viewGalleryLink">
+                        <span>VIEW GALLERY</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
                 </div>
                 <div class="hero-visual">
-                    <div class="floating-cube-container">
-                        <div class="floating-cube">
-                            <div class="cube-face front"><i class="fas fa-crown"></i></div>
-                            <div class="cube-face back"><i class="fas fa-star"></i></div>
-                            <div class="cube-face right"><i class="fas fa-gem"></i></div>
-                            <div class="cube-face left"><i class="fas fa-medal"></i></div>
-                            <div class="cube-face top"><i class="fas fa-trophy"></i></div>
-                            <div class="cube-face bottom"><i class="fas fa-award"></i></div>
-                        </div>
+                    <div class="rank-image-cycler" id="rankImageCycler">
+                        <!-- Rank images will be injected here by JavaScript -->
                     </div>
                     <div class="particles-container" id="particlesContainer"></div>
                 </div>
@@ -153,7 +153,42 @@
             <h2 class="section-title animate-on-scroll">
                 <span class="title-gradient">FEATURES</span>
             </h2>
-            <div class="features-grid">
+            <div class="features-carousel-container">
+                <div class="features-carousel-wrapper">
+                    <div class="features-grid">
+                <div class="feature-card animate-on-scroll" data-delay="0.1">
+                    <div class="feature-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Custom Server Tags</h3>
+                    <p>Unique and stylish rank tags designed specifically for Minecraft servers, making your server hierarchy visually distinctive.</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="0.2">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Professional Designs</h3>
+                    <p>Carefully crafted designs that work seamlessly on servers while maintaining Minecraft's aesthetic appeal.</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="0.3">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Enhanced Visuals</h3>
+                    <p>Improve your server's visual hierarchy and player experience with clear, attractive rank displays.</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+                <div class="feature-card animate-on-scroll" data-delay="0.4">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Cross-Platform</h3>
+                    <p>Full compatibility with Java Edition, Bedrock Edition, and Pocket Edition servers for maximum reach.</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+                <!-- Duplicated for seamless loop -->
                 <div class="feature-card animate-on-scroll" data-delay="0.1">
                     <div class="feature-icon">
                         <i class="fas fa-tags"></i>
@@ -242,20 +277,11 @@
                 </div>
             </div>
 
-            
-            <!-- Rank Prefixes Button -->
-            <div class="rank-prefixes-section">
-                <a href="#" class="btn btn-secondary rank-prefixes-btn animate-on-scroll">
-                    <span>View Rank Prefixes</span>
-                </a>
-            </div>
-
-            
-            <!-- Video Tutorial Section -->
-            <div class="tutorial-section animate-on-scroll">
-                <p class="tutorial-heading">Video Tutorial</p>
-                <div class="tutorial-video-box" id="tutorialVideoBox">
-                    <div class="video-thumbnail" id="videoThumbnail">
+            <!-- Tutorial Video Section -->
+            <div class="tutorial-section">
+                <h3 class="tutorial-heading">Video Tutorial</h3>
+                <div class="tutorial-video-box" id="videoThumbnail">
+                    <div class="video-thumbnail">
                         <div class="play-button">
                             <i class="fas fa-play"></i>
                         </div>
@@ -264,8 +290,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Support Section -->
                 <div class="support-section">
                     <p class="support-text">For Support</p>
                     <a href="#" class="btn-support-discord" id="supportDiscordBtn" target="_blank" rel="noopener noreferrer">

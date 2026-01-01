@@ -8,7 +8,7 @@ const SiteConfig = {
     copyrightYear: new Date().getFullYear(),
     
     // Texture Pack Version - Update this when releasing new versions
-    version: "1.1 (RELEASING SOON!)",
+    version: "1.1 (RELEASED!)",
     
     // Social Media Links - Only Discord and YouTube
     social: {
@@ -27,7 +27,7 @@ const SiteConfig = {
     
     // Installation Tutorial Video
     tutorialVideo: {
-        youtubeUrl: "https://youtu.be/TgkcCMOSUN0?si=i0A7CEDkLWnxmo3a", // Replace with your YouTube video URL
+        youtubeUrl: "https://youtu.be/TgkcCMOSUN0?si=gFKyKvieKjc95zNm", // Replace with your YouTube video URL
         thumbnailUrl: "https://i.ytimg.com/vi/TgkcCMOSUN0/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCeoN-h76DA3GfpcDrlY1H7f7uUcg", // Replace with video Thumbnail
         title: " "
     },
@@ -35,7 +35,7 @@ const SiteConfig = {
     // Resources Links - Configurable from here
     resources: {
         documentation: "https://github.com/RealGamerzYT7/RG-RANKS",
-        tutorials: "https://youtu.be/TgkcCMOSUN0?si=i0A7CEDkLWnxmo3a",
+        tutorials: "https://youtu.be/TgkcCMOSUN0?si=gFKyKvieKjc95zNm",
         support: "https://discord.gg/ACxPgfd25N"
         // Community removed as requested
     },
@@ -100,6 +100,14 @@ const SiteConfig = {
         }
     ],
     
+    // Countdown Timer Settings
+    countdown: {
+        enabled: true, // Master switch for the countdown feature
+        version: "1.1", // The version number to be displayed
+        releaseDate: "2026-01-01", // Format: YYYY-MM-DD
+        releaseTime: "11:00 PM", // Format: HH:MM AM/PM (in UTC)
+    },
+
     // Animation Settings
     animations: {
         particleCount: 15,
