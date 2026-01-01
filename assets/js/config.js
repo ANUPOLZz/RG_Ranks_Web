@@ -23,7 +23,7 @@ const SiteConfig = {
     },
 
     // Rank Prefixes - Button Link
-    rankPrefixesLink: "https://youtu.be/xvFZjo5PgG0?si=eptjCpO3EQGguBnn",  // Replace with Rank Prefixes GitHub Repo Link
+    rankPrefixesLink: "https://github.com/RealGamerzYT7/RG-RANKS",  // Replace with Rank Prefixes GitHub Repo Link
     
     // Installation Tutorial Video
     tutorialVideo: {
@@ -104,8 +104,8 @@ const SiteConfig = {
     countdown: {
         enabled: true, // Master switch for the countdown feature
         version: "1.1", // The version number to be displayed
-        releaseDate: "2026-01-01", // Format: YYYY-MM-DD
-        releaseTime: "11:00 PM", // Format: HH:MM AM/PM (in UTC)
+        releaseDate: "2026-01-02", // Format: YYYY-MM-DD
+        releaseTime: "09:00 PM", // Format: HH:MM AM/PM (in UTC)
     },
 
     // Animation Settings
