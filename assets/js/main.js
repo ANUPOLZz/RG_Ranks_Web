@@ -528,8 +528,27 @@ function initCountdown() {
         return;
     }
 
-    const releaseDateTimeString = `${countdown.releaseDate} ${countdown.releaseTime} UTC`;
-    const releaseDate = new Date(releaseDateTimeString).getTime();
+    // Function to parse time with AM/PM
+    const parseTime = (timeStr) => {
+        const [time, modifier] = timeStr.split(' ');
+        let [hours, minutes] = time.split(':');
+        if (hours === '12') {
+            hours = '00';
+        }
+        if (modifier === 'PM') {
+            hours = parseInt(hours, 10) + 12;
+        }
+        return `${String(hours).padStart(2, '0')}:${minutes}:00`;
+    };
+
+    const time24 = parseTime(countdown.releaseTime);
+    const releaseDateTimeString = `${countdown.releaseDate}T${time24}`;
+
+    // Create a date object in the specified timezone
+    const releaseDateInTimezone = new Date(new Date(releaseDateTimeString).toLocaleString('en-US', { timeZone: countdown.timezone }));
+    const localDate = new Date(releaseDateTimeString);
+    const timezoneOffset = localDate.getTime() - releaseDateInTimezone.getTime();
+    const releaseDate = localDate.getTime() + timezoneOffset;
 
     if (isNaN(releaseDate)) {
         console.error("Invalid countdown date/time format in config.js. Please use YYYY-MM-DD and HH:MM AM/PM.");

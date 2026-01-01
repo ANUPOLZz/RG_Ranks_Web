@@ -105,7 +105,8 @@ const SiteConfig = {
         enabled: true, // Master switch for the countdown feature
         version: "1.1", // The version number to be displayed
         releaseDate: "2026-01-02", // Format: YYYY-MM-DD
-        releaseTime: "09:00 PM", // Format: HH:MM AM/PM (in UTC)
+        releaseTime: "09:00 PM", // Format: HH:MM AM/PM
+        timezone: "Asia/Kolkata" // Timezone for the release (e.g., America/New_York, Europe/London, Asia/Kolkata)
     },
 
     // Animation Settings
