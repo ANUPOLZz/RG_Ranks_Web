@@ -18,8 +18,8 @@ const SiteConfig = {
     
     // Download Links - Direct file paths to zip files
     downloads: {
-        javaEdition: "https://linkvertise.com/1337427/rgranksv1-121-java?o=sharing", // Java
-        bedrockEdition: "https://linkvertise.com/1337427/rgranksv1-121-bedrock?o=sharing" // Bedrock
+        javaEdition: "https://link-hub.net/1337427/8qJK9IB6A6W9", // Java
+        bedrockEdition: "https://link-target.net/1337427/HEdIpubAXrHH" // Bedrock
     },
 
     // Rank Prefixes - Button Link
@@ -102,10 +102,10 @@ const SiteConfig = {
     
     // Countdown Timer Settings
     countdown: {
-        enabled: false, // Master switch for the countdown feature
+        enabled: true, // Master switch for the countdown feature
         version: "1.1", // The version number to be displayed
         releaseDate: "2026-01-02", // Format: YYYY-MM-DD
-        releaseTime: "09:00 PM", // Format: HH:MM AM/PM
+        releaseTime: "11:00 PM", // Format: HH:MM AM/PM
         timezone: "Asia/Kolkata" // Timezone for the release (e.g., America/New_York, Europe/London, Asia/Kolkata)
     },
 
