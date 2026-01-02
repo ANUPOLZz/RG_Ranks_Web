@@ -23,7 +23,7 @@ const SiteConfig = {
     },
 
     // Rank Prefixes - Button Link
-    rankPrefixesLink: "https://github.com/RealGamerzYT7/RG-RANKS",  // Replace with Rank Prefixes GitHub Repo Link
+    rankPrefixesLink: "https://github.com/RealGamerzYT7/RG-RANKS/releases/tag/RGRANKSV1.1",  // Replace with Rank Prefixes GitHub Repo Link
     
     // Installation Tutorial Video
     tutorialVideo: {
