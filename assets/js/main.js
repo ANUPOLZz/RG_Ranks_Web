@@ -642,7 +642,7 @@ function renderHeroContent(isCountdownActive) {
             </div>
             <div class="hero-buttons-extra">
                  <a href="${SiteConfig.rankPrefixesLink}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary rank-prefixes-btn">
-                    <span>View Rank Prefixes</span>
+                    <span>Get Rank Prefixes</span>
                 </a>
             </div>
         `;
