@@ -27,15 +27,15 @@ const SiteConfig = {
     
     // Installation Tutorial Video
     tutorialVideo: {
-        youtubeUrl: "https://youtu.be/TgkcCMOSUN0?si=gFKyKvieKjc95zNm", // Replace with your YouTube video URL
-        thumbnailUrl: "https://i.ytimg.com/vi/TgkcCMOSUN0/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCeoN-h76DA3GfpcDrlY1H7f7uUcg", // Replace with video Thumbnail
+        youtubeUrl: " ", // Replace with your YouTube video URL
+        thumbnailUrl: "https://media.discordapp.net/attachments/1202317671702745229/1457780952691511380/RG-RANKS-THUMBNAIL.png?ex=695d3fcf&is=695bee4f&hm=2ff6852af0abaadc83b8554530f9ecd345172334a129ad74d27495ee26676b3d&=&format=webp&quality=lossless", // Replace with video Thumbnail
         title: " "
     },
     
     // Resources Links - Configurable from here
     resources: {
         documentation: "https://github.com/RealGamerzYT7/RG-RANKS",
-        tutorials: "https://youtu.be/TgkcCMOSUN0?si=gFKyKvieKjc95zNm",
+        tutorials: " ",
         support: "https://discord.gg/ACxPgfd25N"
         // Community removed as requested
     },
