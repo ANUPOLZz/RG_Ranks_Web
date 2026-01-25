@@ -28,7 +28,7 @@ const SiteConfig = {
     // Installation Tutorial Video
     tutorialVideo: {
         youtubeUrl: " ", // Replace with your YouTube video URL
-        thumbnailUrl: "https://media.discordapp.net/attachments/1202317671702745229/1457780952691511380/RG-RANKS-THUMBNAIL.png?ex=695d3fcf&is=695bee4f&hm=2ff6852af0abaadc83b8554530f9ecd345172334a129ad74d27495ee26676b3d&=&format=webp&quality=lossless", // Replace with video Thumbnail
+        thumbnailUrl: "https://media.discordapp.net/attachments/1202317671702745229/1458138312286929016/RG-RANKS-THUMBNAIL.png?ex=69779920&is=697647a0&hm=8ddc0ba50d83a7bb21fcce0d0902ef85771470862491a4a9add336724df5dd32&=&format=webp&quality=lossless", // Replace with video Thumbnail
         title: " "
     },
     
