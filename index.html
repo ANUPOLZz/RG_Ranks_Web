@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RG RANKS - Professional Custom Rank Textures for Minecraft Servers. Compatible with Java, Bedrock, and Pocket Edition.">
+    <meta name="description"
+        content="RG RANKS - Professional Custom Rank Textures for Minecraft Servers. Compatible with Java, Bedrock, and Pocket Edition.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>RG RANKS - Custom Minecraft Server Rank Textures</title>
     <link rel="icon" type="image/png" href="./assets/images/favicon.png">
@@ -11,32 +13,33 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome Icons with fallback -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-          crossorigin="anonymous" 
-          referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Fallback for Font Awesome -->
     <script>
-        (function() {
+        (function () {
             var cssLink = document.querySelector('link[href*="font-awesome"]');
-            cssLink.onerror = function() {
+            cssLink.onerror = function () {
                 console.warn('Font Awesome CDN failed, icons may not display correctly');
             };
         })();
     </script>
-    
+
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./assets/css/styles.css">
 
     <!-- Ad-Sense Config -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5215705394977140"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 
 </head>
+
 <body>
     <!-- Countdown Overlay -->
     <div id="countdownOverlay" class="countdown-overlay">
@@ -44,12 +47,9 @@
             <h2 class="countdown-overlay-title">Version <span id="countdownVersionOverlay"></span> Releasing In</h2>
             <div id="countdownTimerOverlay" class="countdown-timer-overlay-container">
                 <div class="timer-unit"><span id="daysOverlay">00</span><label>DAYS</label></div>
-                <div class="timer-separator">:</div>
                 <div class="timer-unit"><span id="hoursOverlay">00</span><label>HOURS</label></div>
-                <div class="timer-separator">:</div>
-                <div class="timer-unit"><span id="minutesOverlay">00</span><label>MINUTES</label></div>
-                <div class="timer-separator">:</div>
-                <div class="timer-unit"><span id="secondsOverlay">00</span><label>SECONDS</label></div>
+                <div class="timer-unit"><span id="minutesOverlay">00</span><label>MINS</label></div>
+                <div class="timer-unit"><span id="secondsOverlay">00</span><label>SECS</label></div>
             </div>
             <button id="continueBtn" class="btn btn-secondary">CONTINUE TO THE SITE</button>
         </div>
@@ -71,7 +71,7 @@
     <header id="header">
         <div class="container">
             <nav>
-                <div class="logo">RG RANKS</div>
+                <a href="#" class="logo-link"><img src="./assets/images/icon.png" alt="RG RANKS" class="logo-img"></a>
                 <div class="nav-wrapper">
                     <div class="nav-links">
                         <a href="#features" data-nav>Features</a>
@@ -110,12 +110,12 @@
     <section class="hero" id="hero">
         <!-- Ambient Background Canvas -->
         <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
-        
+
         <!-- Flowing Gradient Layers -->
         <div class="gradient-layer gradient-1"></div>
         <div class="gradient-layer gradient-2"></div>
         <div class="gradient-layer gradient-3"></div>
-        
+
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -123,8 +123,10 @@
                         <span class="hero-subtitle">RG RANKS</span>
                         <span class="hero-title">Server Rank Textures</span>
                     </h1>
-                    <p class="hero-description">Professional Custom Rank Textures for Minecraft Servers. Compatible with Java Edition, Bedrock Edition, and Pocket Edition. Enhance your server's visual appeal with stunning rank designs.</p>
-                    
+                    <p class="hero-description">Professional Custom Rank Textures for Minecraft Servers. Compatible with
+                        Java Edition, Bedrock Edition, and Pocket Edition. Enhance your server's visual appeal with
+                        stunning rank designs.</p>
+
                     <!-- Dynamic Content: Countdown or Download Buttons -->
                     <div id="heroDynamicContent">
                         <!-- This will be populated by main.js -->
@@ -149,80 +151,88 @@
     <!-- Features Section -->
     <section id="features" class="features-section">
         <div class="container">
-            
+
             <h2 class="section-title animate-on-scroll">
                 <span class="title-gradient">FEATURES</span>
             </h2>
             <div class="features-carousel-container">
                 <div class="features-carousel-wrapper">
                     <div class="features-grid">
-                <div class="feature-card animate-on-scroll" data-delay="0.1">
-                    <div class="feature-icon">
-                        <i class="fas fa-tags"></i>
+                        <div class="feature-card animate-on-scroll" data-delay="0.1">
+                            <div class="feature-icon">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <h3>Custom Server Tags</h3>
+                            <p>Unique and stylish rank tags designed specifically for Minecraft servers, making your
+                                server hierarchy visually distinctive.</p>
+                            <div class="feature-hover-effect"></div>
+                        </div>
+                        <div class="feature-card animate-on-scroll" data-delay="0.2">
+                            <div class="feature-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3>Professional Designs</h3>
+                            <p>Carefully crafted designs that work seamlessly on servers while maintaining Minecraft's
+                                aesthetic appeal.</p>
+                            <div class="feature-hover-effect"></div>
+                        </div>
+                        <div class="feature-card animate-on-scroll" data-delay="0.3">
+                            <div class="feature-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>Enhanced Visuals</h3>
+                            <p>Improve your server's visual hierarchy and player experience with clear, attractive rank
+                                displays.</p>
+                            <div class="feature-hover-effect"></div>
+                        </div>
+                        <div class="feature-card animate-on-scroll" data-delay="0.4">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>Cross-Platform</h3>
+                            <p>Full compatibility with Java Edition, Bedrock Edition, and Pocket Edition servers for
+                                maximum reach.</p>
+                            <div class="feature-hover-effect"></div>
+                        </div>
+                        <!-- Duplicated for seamless loop -->
+                        <div class="feature-card animate-on-scroll" data-delay="0.1">
+                            <div class="feature-icon">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <h3>Custom Server Tags</h3>
+                            <p>Unique and stylish rank tags designed specifically for Minecraft servers, making your
+                                server hierarchy visually distinctive.</p>
+                            <div class="feature-hover-effect"></div>
+                        </div>
+                        <div class="feature-card animate-on-scroll" data-delay="0.2">
+                            <div class="feature-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3>Professional Designs</h3>
+                            <p>Carefully crafted designs that work seamlessly on servers while maintaining Minecraft's
+                                aesthetic appeal.</p>
+                            <div class="feature-hover-effect"></div>
+                        </div>
+                        <div class="feature-card animate-on-scroll" data-delay="0.3">
+                            <div class="feature-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>Enhanced Visuals</h3>
+                            <p>Improve your server's visual hierarchy and player experience with clear, attractive rank
+                                displays.</p>
+                            <div class="feature-hover-effect"></div>
+                        </div>
+                        <div class="feature-card animate-on-scroll" data-delay="0.4">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>Cross-Platform</h3>
+                            <p>Full compatibility with Java Edition, Bedrock Edition, and Pocket Edition servers for
+                                maximum reach.</p>
+                            <div class="feature-hover-effect"></div>
+                        </div>
                     </div>
-                    <h3>Custom Server Tags</h3>
-                    <p>Unique and stylish rank tags designed specifically for Minecraft servers, making your server hierarchy visually distinctive.</p>
-                    <div class="feature-hover-effect"></div>
                 </div>
-                <div class="feature-card animate-on-scroll" data-delay="0.2">
-                    <div class="feature-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Professional Designs</h3>
-                    <p>Carefully crafted designs that work seamlessly on servers while maintaining Minecraft's aesthetic appeal.</p>
-                    <div class="feature-hover-effect"></div>
-                </div>
-                <div class="feature-card animate-on-scroll" data-delay="0.3">
-                    <div class="feature-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Enhanced Visuals</h3>
-                    <p>Improve your server's visual hierarchy and player experience with clear, attractive rank displays.</p>
-                    <div class="feature-hover-effect"></div>
-                </div>
-                <div class="feature-card animate-on-scroll" data-delay="0.4">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Cross-Platform</h3>
-                    <p>Full compatibility with Java Edition, Bedrock Edition, and Pocket Edition servers for maximum reach.</p>
-                    <div class="feature-hover-effect"></div>
-                </div>
-                <!-- Duplicated for seamless loop -->
-                <div class="feature-card animate-on-scroll" data-delay="0.1">
-                    <div class="feature-icon">
-                        <i class="fas fa-tags"></i>
-                    </div>
-                    <h3>Custom Server Tags</h3>
-                    <p>Unique and stylish rank tags designed specifically for Minecraft servers, making your server hierarchy visually distinctive.</p>
-                    <div class="feature-hover-effect"></div>
-                </div>
-                <div class="feature-card animate-on-scroll" data-delay="0.2">
-                    <div class="feature-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Professional Designs</h3>
-                    <p>Carefully crafted designs that work seamlessly on servers while maintaining Minecraft's aesthetic appeal.</p>
-                    <div class="feature-hover-effect"></div>
-                </div>
-                <div class="feature-card animate-on-scroll" data-delay="0.3">
-                    <div class="feature-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Enhanced Visuals</h3>
-                    <p>Improve your server's visual hierarchy and player experience with clear, attractive rank displays.</p>
-                    <div class="feature-hover-effect"></div>
-                </div>
-                <div class="feature-card animate-on-scroll" data-delay="0.4">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Cross-Platform</h3>
-                    <p>Full compatibility with Java Edition, Bedrock Edition, and Pocket Edition servers for maximum reach.</p>
-                    <div class="feature-hover-effect"></div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Gallery Section -->
@@ -237,7 +247,7 @@
         </div>
     </section>
 
-        <!-- Installation Guide -->
+    <!-- Installation Guide -->
     <section id="installation" class="installation-section">
         <div class="container">
             <h2 class="section-title animate-on-scroll">
@@ -248,7 +258,9 @@
                     <div class="step-number"><span>1</span></div>
                     <div class="step-content">
                         <h3>Download Files</h3>
-                        <p>For Java, download the resource pack and keep it ready locally; for Bedrock, download Geyser and Floodgate and place them in your server’s <code>plugins</code> folder (or upload them via your server panel).</p>
+                        <p>For Java, download the resource pack and keep it ready locally; for Bedrock, download Geyser
+                            and Floodgate and place them in your server’s <code>plugins</code> folder (or upload them
+                            via your server panel).</p>
                     </div>
                 </div>
 
@@ -256,7 +268,11 @@
                     <div class="step-number"><span>2</span></div>
                     <div class="step-content">
                         <h3>Prepare Files</h3>
-                        <p>For Java, upload the resource pack to <a href="https://mc-packs.net/" style="color:#FF00FF;">MC-Packs</a> to host it and note the pack URL and SHA-1; for Bedrock, start the server once so Geyser generates its config files in <code>plugins/Geyser</code>.</p>
+                        <p>For Java, upload the resource pack to <a href="https://mc-packs.net/"
+                                style="color:#FF00FF;">MC-Packs</a> to host it and note the pack URL and SHA-1; for
+                            Bedrock, start the server once so Geyser generates its config files in
+                            <code>plugins/Geyser</code>.
+                        </p>
                     </div>
                 </div>
 
@@ -264,7 +280,10 @@
                     <div class="step-number"><span>3</span></div>
                     <div class="step-content">
                         <h3>Configure Pack</h3>
-                        <p>For Java, copy the hosted pack URL and SHA-1 hash from MC-Packs; for Bedrock, open your server files, go to <code>plugins/Geyser</code> and create a <code>packs</code> folder at <code>/plugins/Geyser/packs</code> if it doesn’t exist.</p>
+                        <p>For Java, copy the hosted pack URL and SHA-1 hash from MC-Packs; for Bedrock, open your
+                            server files, go to <code>plugins/Geyser</code> and create a <code>packs</code> folder at
+                            <code>/plugins/Geyser/packs</code> if it doesn’t exist.
+                        </p>
                     </div>
                 </div>
 
@@ -272,7 +291,10 @@
                     <div class="step-number"><span>4</span></div>
                     <div class="step-content">
                         <h3>Apply Pack</h3>
-                        <p>For Java, edit <code>server.properties</code> to set <code>resource-pack=</code> (paste the URL) and <code>resource-pack-sha1=</code> (paste the SHA-1) then save and restart your server via the panel; for Bedrock, upload the pack to <code>plugins/Geyser/packs</code> (or your server’s <code>packs</code> folder) and restart.</p>
+                        <p>For Java, edit <code>server.properties</code> to set <code>resource-pack=</code> (paste the
+                            URL) and <code>resource-pack-sha1=</code> (paste the SHA-1) then save and restart your
+                            server via the panel; for Bedrock, upload the pack to <code>plugins/Geyser/packs</code> (or
+                            your server’s <code>packs</code> folder) and restart.</p>
                     </div>
                 </div>
             </div>
@@ -292,7 +314,8 @@
                 </div>
                 <div class="support-section">
                     <p class="support-text">For Support</p>
-                    <a href="#" class="btn-support-discord" id="supportDiscordBtn" target="_blank" rel="noopener noreferrer">
+                    <a href="#" class="btn-support-discord" id="supportDiscordBtn" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-discord"></i>
                         <span>Join Discord</span>
                     </a>
@@ -318,8 +341,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>RG RANKS</h3>
-                    <p>Professional custom rank textures for Minecraft servers. Compatible with Java Edition, Bedrock Edition, and Pocket Edition. Enhance your server's visual hierarchy with stunning rank designs.</p>
+                    <div class="footer-logo-container">
+                        <img src="./assets/images/icon.png" alt="RG RANKS" class="footer-logo-img">
+                    </div>
+                    <p>Premium Minecraft server rank textures for Java and Bedrock editions. Elevate your server's
+                        visual appeal.</p>
                     <div class="social-links" id="socialLinks">
                         <!-- Social links will be dynamically inserted here -->
                     </div>
@@ -336,15 +362,18 @@
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="#" data-resource="documentation"><i class="fas fa-chevron-right"></i> Documentation</a></li>
-                        <li><a href="#" data-resource="tutorials"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+                        <li><a href="#" data-resource="documentation"><i class="fas fa-chevron-right"></i>
+                                Documentation</a></li>
+                        <li><a href="#" data-resource="tutorials"><i class="fas fa-chevron-right"></i> Tutorials</a>
+                        </li>
                         <li><a href="#" data-resource="support"><i class="fas fa-chevron-right"></i> Support</a></li>
                         <!-- Community button removed as requested -->
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p id="copyrightText">&copy; 2024 RG RANKS. All rights reserved. Not affiliated with Mojang Studios or Microsoft.</p>
+                <p id="copyrightText">&copy; 2024 RG RANKS. All rights reserved. Not affiliated with Mojang Studios or
+                    Microsoft.</p>
                 <p class="credits">Webpage Designed By <span class="team-highlight">TEAM RG</span></p>
             </div>
         </div>

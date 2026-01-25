@@ -59,7 +59,7 @@ function applyConfig() {
     if (versionElement) {
         versionElement.textContent = SiteConfig.version;
     }
-    
+
     // Update Discord links
     const discordBtn = document.getElementById('discordBtn');
     const mobileDiscordBtn = document.getElementById('mobileDiscordBtn');
@@ -67,28 +67,28 @@ function applyConfig() {
     if (discordBtn) discordBtn.href = SiteConfig.social.discord;
     if (mobileDiscordBtn) mobileDiscordBtn.href = SiteConfig.social.discord;
     if (supportDiscordBtn) supportDiscordBtn.href = SiteConfig.social.discord;
-    
+
     // Setup download buttons for direct file download
     setupDownloadButtons();
-    
+
     // Setup tutorial video
     setupTutorialVideo();
-    
+
     // Setup resources links
     setupResourcesLinks();
-    
+
     // Update copyright
     const copyrightText = document.getElementById('copyrightText');
     if (copyrightText) {
         copyrightText.textContent = `© ${SiteConfig.copyrightYear} ${SiteConfig.siteName}. All rights reserved. Not affiliated with Mojang Studios or Microsoft.`;
     }
-    
+
     // Generate gallery items
     generateGallery();
-    
+
     // Generate FAQ items
     generateFAQ();
-    
+
     // Generate social links
     generateSocialLinks();
 
@@ -102,19 +102,19 @@ function setupResourcesLinks() {
     const documentationLink = document.querySelector('a[href="#"][data-resource="documentation"]');
     const tutorialsLink = document.querySelector('a[href="#"][data-resource="tutorials"]');
     const supportLink = document.querySelector('a[href="#"][data-resource="support"]');
-    
+
     if (documentationLink) {
         documentationLink.href = SiteConfig.resources.documentation;
         documentationLink.target = "_blank";
         documentationLink.rel = "noopener noreferrer";
     }
-    
+
     if (tutorialsLink) {
         tutorialsLink.href = SiteConfig.resources.tutorials;
         tutorialsLink.target = "_blank";
         tutorialsLink.rel = "noopener noreferrer";
     }
-    
+
     if (supportLink) {
         supportLink.href = SiteConfig.resources.support;
         supportLink.target = "_blank";
@@ -126,7 +126,7 @@ function setupResourcesLinks() {
 function setupDownloadButtons() {
     const downloadJava = document.getElementById('downloadJava');
     const downloadBedrock = document.getElementById('downloadBedrock');
-    
+
     if (downloadJava) {
         downloadJava.href = SiteConfig.downloads.javaEdition;
         // Remove download attribute to let browser handle it naturally
@@ -134,7 +134,7 @@ function setupDownloadButtons() {
         // Remove any click handlers that might interfere
         downloadJava.onclick = null;
     }
-    
+
     if (downloadBedrock) {
         downloadBedrock.href = SiteConfig.downloads.bedrockEdition;
         // Remove download attribute to let browser handle it naturally
@@ -148,21 +148,21 @@ function setupDownloadButtons() {
 // Setup tutorial video
 function setupTutorialVideo() {
     const videoContainer = document.getElementById('videoThumbnail');
-    
+
     if (videoContainer && SiteConfig.tutorialVideo) {
         const thumbnailElement = videoContainer.querySelector('.video-thumbnail');
         const videoTitle = document.getElementById('videoTitle');
-        
+
         // Set video thumbnail
         if (thumbnailElement) {
             thumbnailElement.style.backgroundImage = `url('${SiteConfig.tutorialVideo.thumbnailUrl}')`;
         }
-        
+
         // Set video title
         if (videoTitle) {
             videoTitle.textContent = SiteConfig.tutorialVideo.title;
         }
-        
+
         // Add click event to open YouTube video
         videoContainer.addEventListener('click', () => {
             window.open(SiteConfig.tutorialVideo.youtubeUrl, '_blank');
@@ -173,7 +173,7 @@ function setupTutorialVideo() {
 // Generate gallery items dynamically
 function generateGallery() {
     if (!elements.galleryGrid) return;
-    
+
     elements.galleryGrid.innerHTML = SiteConfig.gallery.map((item, index) => `
         <div class="gallery-item animate-on-scroll" data-delay="${0.1 * (index + 1)}">
             <div class="gallery-placeholder" style="background-image: url('${item.image}');">
@@ -191,7 +191,7 @@ function generateGallery() {
 // Generate FAQ items dynamically
 function generateFAQ() {
     if (!elements.faqContainer) return;
-    
+
     elements.faqContainer.innerHTML = SiteConfig.faq.map((item, index) => `
         <div class="faq-item animate-on-scroll" data-delay="${0.1 * (index + 1)}">
             <div class="faq-question">
@@ -203,7 +203,7 @@ function generateFAQ() {
             </div>
         </div>
     `).join('');
-    
+
     // Reattach FAQ event listeners
     initFAQ();
 }
@@ -211,12 +211,12 @@ function generateFAQ() {
 // Generate social links dynamically - Updated for only Discord and YouTube
 function generateSocialLinks() {
     if (!elements.socialLinks) return;
-    
+
     const socialIcons = {
         discord: 'fab fa-discord',
         youtube: 'fab fa-youtube'
     };
-    
+
     elements.socialLinks.innerHTML = Object.entries(SiteConfig.social).map(([platform, url]) => `
         <a href="${url}" target="_blank" aria-label="${platform.charAt(0).toUpperCase() + platform.slice(1)}">
             <i class="${socialIcons[platform] || 'fas fa-link'}"></i>
@@ -241,12 +241,12 @@ function initLoader() {
 // Mobile Menu
 function initMobileMenu() {
     if (!elements.mobileMenuBtn || !elements.mobileMenu) return;
-    
+
     elements.mobileMenuBtn.addEventListener('click', () => {
         elements.mobileMenuBtn.classList.toggle('active');
         elements.mobileMenu.classList.toggle('active');
     });
-    
+
     // Close menu when clicking a link
     document.querySelectorAll('.mobile-menu-content a[data-nav]').forEach(link => {
         link.addEventListener('click', () => {
@@ -259,16 +259,16 @@ function initMobileMenu() {
 // Header Scroll Effect
 function initHeaderScroll() {
     let lastScrollTop = 0;
-    
+
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         if (scrollTop > 50) {
             elements.header.classList.add('scrolled');
         } else {
             elements.header.classList.remove('scrolled');
         }
-        
+
         lastScrollTop = scrollTop;
     });
 }
@@ -276,17 +276,17 @@ function initHeaderScroll() {
 // Smooth Scrolling
 function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const target = document.querySelector(targetId);
             if (target) {
                 const headerOffset = 80;
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
@@ -299,7 +299,7 @@ function initSmoothScrolling() {
 // Scroll to Top Button
 function initScrollToTop() {
     if (!elements.scrollTopBtn) return;
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 500) {
             elements.scrollTopBtn.classList.add('visible');
@@ -307,7 +307,7 @@ function initScrollToTop() {
             elements.scrollTopBtn.classList.remove('visible');
         }
     });
-    
+
     elements.scrollTopBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -319,15 +319,15 @@ function initScrollToTop() {
 // FAQ Accordion
 function initFAQ() {
     document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', function() {
+        question.addEventListener('click', function () {
             const faqItem = this.parentElement;
             const isActive = faqItem.classList.contains('active');
-            
+
             // Close all FAQ items
             document.querySelectorAll('.faq-item').forEach(item => {
                 item.classList.remove('active');
             });
-            
+
             // Open clicked item if it wasn't active
             if (!isActive) {
                 faqItem.classList.add('active');
@@ -342,7 +342,7 @@ function initScrollAnimations() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -353,7 +353,7 @@ function initScrollAnimations() {
             }
         });
     }, observerOptions);
-    
+
     // Observe all animatable elements
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
         observer.observe(el);
@@ -364,18 +364,18 @@ function initScrollAnimations() {
 function initAmbientCanvas() {
     const canvas = elements.ambientCanvas;
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext('2d');
     let time = 0;
-    
+
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
-    
+
     function drawAmbient() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
+
         // Create flowing gradient waves
         const gradient1 = ctx.createRadialGradient(
             canvas.width * 0.3 + Math.sin(time) * 50,
@@ -387,7 +387,7 @@ function initAmbientCanvas() {
         );
         gradient1.addColorStop(0, 'rgba(0, 240, 255, 0.15)');
         gradient1.addColorStop(1, 'transparent');
-        
+
         const gradient2 = ctx.createRadialGradient(
             canvas.width * 0.7 + Math.cos(time * 0.8) * 50,
             canvas.height * 0.6 + Math.sin(time * 0.8) * 50,
@@ -398,17 +398,17 @@ function initAmbientCanvas() {
         );
         gradient2.addColorStop(0, 'rgba(255, 0, 255, 0.15)');
         gradient2.addColorStop(1, 'transparent');
-        
+
         ctx.fillStyle = gradient1;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
+
         ctx.fillStyle = gradient2;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
+
         time += SiteConfig.animations.ambientWaveSpeed;
         requestAnimationFrame(drawAmbient);
     }
-    
+
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     drawAmbient();
@@ -418,16 +418,16 @@ function initAmbientCanvas() {
 function initParticles() {
     const container = elements.particlesContainer;
     if (!container || window.innerWidth < 768) return;
-    
+
     const particles = [];
     const config = SiteConfig.animations;
-    
+
     class Particle {
         constructor() {
             this.reset();
             this.y = Math.random() * window.innerHeight;
         }
-        
+
         reset() {
             this.x = Math.random() * window.innerWidth;
             this.y = window.innerHeight + 50;
@@ -442,40 +442,40 @@ function initParticles() {
             this.element.style.opacity = this.opacity;
             container.appendChild(this.element);
         }
-        
+
         update() {
             this.y -= this.speedY;
             this.x += this.speedX;
-            
+
             if (this.y < -50) {
                 this.reset();
             }
-            
+
             this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
         }
-        
+
         destroy() {
             if (this.element && this.element.parentNode) {
                 this.element.parentNode.removeChild(this.element);
             }
         }
     }
-    
+
     // Create particles with spacing
     for (let i = 0; i < config.particleCount; i++) {
         setTimeout(() => {
             particles.push(new Particle());
         }, i * 200);
     }
-    
+
     // Animation loop
     function animateParticles() {
         particles.forEach(particle => particle.update());
         requestAnimationFrame(animateParticles);
     }
-    
+
     animateParticles();
-    
+
     // Cleanup on page unload
     window.addEventListener('beforeunload', () => {
         particles.forEach(particle => particle.destroy());
@@ -490,7 +490,7 @@ function initInteractiveEffects() {
             const rect = item.getBoundingClientRect();
             const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
             const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-            
+
             item.style.transform = `
                 perspective(1000px)
                 rotateY(${x * 10}deg)
@@ -498,7 +498,7 @@ function initInteractiveEffects() {
                 translateZ(20px)
             `;
         });
-        
+
         item.addEventListener('mouseleave', () => {
             item.style.transform = '';
         });
@@ -617,10 +617,13 @@ function renderHeroContent(isCountdownActive) {
     if (isCountdownActive) {
         const { countdown } = SiteConfig;
         elements.heroDynamicContent.innerHTML = `
-            <div class="countdown-container-hero">
+            <div class="hero-countdown-wrapper">
                 <div class="countdown-title">Version <span class="countdown-version-highlight">${countdown.version}</span> Releasing In</div>
-                <div class="countdown-timer-hero">
-                    <span id="daysHero">00</span> : <span id="hoursHero">00</span> : <span id="minutesHero">00</span> : <span id="secondsHero">00</span>
+                <div class="countdown-timer-container">
+                    <div class="timer-unit"><span id="daysHero">00</span><label>DAYS</label></div>
+                    <div class="timer-unit"><span id="hoursHero">00</span><label>HRS</label></div>
+                    <div class="timer-unit"><span id="minutesHero">00</span><label>MINS</label></div>
+                    <div class="timer-unit"><span id="secondsHero">00</span><label>SECS</label></div>
                 </div>
             </div>
         `;
@@ -648,30 +651,10 @@ function renderHeroContent(isCountdownActive) {
         `;
     }
     // Ensure the button is sized correctly after render
-    if (!isCountdownActive) {
-        setTimeout(resizeRankPrefixesButton, 0);
-    }
+    // CSS handles resizing now
 }
 
-// Function to dynamically size the rank prefixes button
-function resizeRankPrefixesButton() {
-    const heroButtons = document.querySelector('.hero-buttons');
-    const rankPrefixesBtn = document.querySelector('.rank-prefixes-btn');
-
-    if (heroButtons && rankPrefixesBtn && window.innerWidth >= 560) {
-        const downloadButtons = heroButtons.querySelectorAll('.btn');
-        if (downloadButtons.length === 2) {
-            const width1 = downloadButtons[0].offsetWidth;
-            const width2 = downloadButtons[1].offsetWidth;
-            const gapStyle = window.getComputedStyle(heroButtons).gap;
-            const gap = parseFloat(gapStyle) || 20;
-            const totalWidth = width1 + width2 + gap;
-            rankPrefixesBtn.style.width = `${totalWidth}px`;
-        }
-    } else if (rankPrefixesBtn) {
-        rankPrefixesBtn.style.width = '100%';
-    }
-}
+// Function to dynamically size the rank prefixes button - REMOVED (CSS handled)
 
 // Features Carousel
 function initFeaturesCarousel() {
@@ -708,7 +691,7 @@ function initRankImageCycler() {
     const images = SiteConfig.gallery.map(item => item.image);
     if (images.length === 0) return;
 
-    elements.rankImageCycler.innerHTML = images.map((src, index) => 
+    elements.rankImageCycler.innerHTML = images.map((src, index) =>
         `<img src="${src}" alt="Rank Image ${index + 1}" class="rank-image ${index === 0 ? 'active' : ''}" style="animation-delay: ${index * 5}s">`
     ).join('');
 
@@ -731,23 +714,23 @@ function preloadAdImages() {
             if (adConfig && adConfig.image) {
                 const img = new Image();
                 img.src = adConfig.image;
-                img.onload = function() {
+                img.onload = function () {
                     console.log('Ad image loaded:', adConfig.image);
                 };
-                img.onerror = function() {
+                img.onerror = function () {
                     console.log('Failed to load ad image:', adConfig.image);
                 };
             }
         });
     }
-    
+
     // Preload default ad image
     const defaultImg = new Image();
     defaultImg.src = SiteConfig.ads.defaultSlot.image;
-    defaultImg.onload = function() {
+    defaultImg.onload = function () {
         console.log('Default ad image loaded');
     };
-    defaultImg.onerror = function() {
+    defaultImg.onerror = function () {
         console.log('Failed to load default ad image');
     };
 }
@@ -773,8 +756,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initFeaturesCarousel();
     initRankImageCycler();
     initInteractiveEffects();
-
-    // Add resize listener for the rank prefixes button
-    window.addEventListener('resize', resizeRankPrefixesButton);
 });
 
