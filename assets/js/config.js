@@ -28,8 +28,8 @@ const SiteConfig = {
     // Installation Tutorial Video
     tutorialVideo: {
         youtubeUrl: "https://youtu.be/VBHBEJDlpGY?si=KnliJysm66CgudWl", // Replace with your YouTube video URL
-        thumbnailUrl: "https://i.ytimg.com/vi/VBHBEJDlpGY/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDNBVo3CNgGHOY1QQzaHo0lN7GPig", // Replace with video Thumbnail
-        title: " "
+        thumbnailUrl: "https://i.ytimg.com/vi/VBHBEJDlpGY/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLA8uqq7EHasYcrbOHdsH8u904oLzg", // Replace with video Thumbnail
+        title: "By SanjitGamingYT"
     },
     
     // Resources Links - Configurable from here
