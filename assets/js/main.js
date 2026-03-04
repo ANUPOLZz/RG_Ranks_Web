@@ -245,6 +245,10 @@ function initMobileMenu() {
     elements.mobileMenuBtn.addEventListener('click', () => {
         elements.mobileMenuBtn.classList.toggle('active');
         elements.mobileMenu.classList.toggle('active');
+        // Toggle solid header when menu is open
+        if (elements.header) {
+            elements.header.classList.toggle('menu-open', elements.mobileMenu.classList.contains('active'));
+        }
     });
 
     // Close menu when clicking a link
@@ -252,24 +256,30 @@ function initMobileMenu() {
         link.addEventListener('click', () => {
             elements.mobileMenuBtn.classList.remove('active');
             elements.mobileMenu.classList.remove('active');
+            // Restore fade-gradient header
+            if (elements.header) {
+                elements.header.classList.remove('menu-open');
+            }
         });
     });
 }
 
 // Header Scroll Effect
 function initHeaderScroll() {
-    let lastScrollTop = 0;
+    const featuresSection = document.getElementById('features');
 
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        // Calculate the Features section threshold dynamically
+        const threshold = featuresSection
+            ? featuresSection.offsetTop - (elements.header ? elements.header.offsetHeight : 85)
+            : 50;
 
-        if (scrollTop > 50) {
+        if (scrollTop >= threshold) {
             elements.header.classList.add('scrolled');
         } else {
             elements.header.classList.remove('scrolled');
         }
-
-        lastScrollTop = scrollTop;
     });
 }
 
@@ -757,4 +767,3 @@ document.addEventListener('DOMContentLoaded', () => {
     initRankImageCycler();
     initInteractiveEffects();
 });
-

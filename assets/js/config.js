@@ -29,13 +29,13 @@ const SiteConfig = {
     tutorialVideo: {
         youtubeUrl: "https://youtu.be/VBHBEJDlpGY?si=KnliJysm66CgudWl", // Replace with your YouTube video URL
         thumbnailUrl: "https://i.ytimg.com/vi/VBHBEJDlpGY/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLA8uqq7EHasYcrbOHdsH8u904oLzg", // Replace with video Thumbnail
-        title: "By SanjitGamingYT"
+        title: " "
     },
     
     // Resources Links - Configurable from here
     resources: {
         documentation: "https://github.com/RealGamerzYT7/RG-RANKS",
-        tutorials: " ",
+        tutorials: "https://youtu.be/VBHBEJDlpGY?si=KnliJysm66CgudWl",
         support: "https://discord.gg/ACxPgfd25N"
         // Community removed as requested
     },
