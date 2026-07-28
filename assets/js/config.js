@@ -8,7 +8,7 @@ const SiteConfig = {
     copyrightYear: new Date().getFullYear(),
     
     // Texture Pack Version - Update this when releasing new versions
-    version: "1.1 (RELEASED!)",
+    version: "1.1",
     
     // Social Media Links - Only Discord and YouTube
     social: {
@@ -18,12 +18,12 @@ const SiteConfig = {
     
     // Download Links - Direct file paths to zip files
     downloads: {
-        javaEdition: "https://link-hub.net/1337427/8qJK9IB6A6W9", // Java
-        bedrockEdition: "https://link-target.net/1337427/HEdIpubAXrHH" // Bedrock
+        javaEdition: "https://tpi.li/EBT3rt0T", // Java
+        bedrockEdition: "https://tpi.li/kAaI7nI" // Bedrock
     },
 
     // Rank Prefixes - Button Link
-    rankPrefixesLink: "https://github.com/RealGamerzYT7/RG-RANKS/releases/tag/RGRANKSV1.1",  // Replace with Rank Prefixes GitHub Repo Link
+    rankPrefixesLink: "https://tpi.li/1MWRV92",  // Replace with Rank Prefixes GitHub Repo Link
     
     // Installation Tutorial Video
     tutorialVideo: {
