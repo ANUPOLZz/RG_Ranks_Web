@@ -12,7 +12,7 @@ const SiteConfig = {
     
     // Social Media Links - Only Discord and YouTube
     social: {
-        discord: "https://discord.gg/ACxPgfd25N",
+        discord: "https://discord.gg/4SMXBa5CTx",
         youtube: "https://www.youtube.com/@realgamerzyt"
     },
     
@@ -36,7 +36,7 @@ const SiteConfig = {
     resources: {
         documentation: "https://github.com/RealGamerzYT7/RG-RANKS",
         tutorials: "https://youtu.be/VBHBEJDlpGY?si=KnliJysm66CgudWl",
-        support: "https://discord.gg/ACxPgfd25N"
+        support: "https://discord.gg/4SMXBa5CTx"
         // Community removed as requested
     },
 
